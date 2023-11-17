@@ -1,0 +1,13 @@
+## Diagrammes UML
+
+### Cas d'utilisation
+- [Diagramme de Cas d'utilisation](https://lucid.app/lucidchart/f5955d34-a861-4ec8-9a4c-72d3ee31d7cf/edit?viewport_loc=-967%2C-237%2C3842%2C1780%2C0_0&invitationId=inv_7f8a1911-599e-4dc5-977d-38c60c664fd2)
+  - Ce diagramme présente les différentes actions qu'un utilisateur peut effectuer sur le site, telles que l'affichage, l'insertion, la modification et la suppression des membres et des équipes.
+
+### Séquence
+- [Diagramme de Séquence](https://lucid.app/lucidchart/f5955d34-a861-4ec8-9a4c-72d3ee31d7cf/edit?viewport_loc=-967%2C-237%2C3842%2C1780%2C0_0&invitationId=inv_7f8a1911-599e-4dc5-977d-38c60c664fd2)
+  - Ce diagramme illustre la séquence d'actions entre les acteurs et le système lors de l'exécution de certaines fonctionnalités, par exemple, l'ajout d'un nouveau membre.
+
+### Classe
+- [Diagramme de Classe](https://lucid.app/lucidchart/f5955d34-a861-4ec8-9a4c-72d3ee31d7cf/edit?viewport_loc=-967%2C-237%2C3842%2C1780%2C0_0&invitationId=inv_7f8a1911-599e-4dc5-977d-38c60c664fd2)
+  - Ce diagramme expose la structure des classes du système, y compris les classes liées aux membres, aux équipes et à d'autres entités pertinentes.
