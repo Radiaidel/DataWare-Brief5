@@ -1,0 +1,129 @@
+* {
+    text-decoration: none;
+    list-style: none;
+}
+:root{
+    --couleur-principale: #e1b204;
+--couleur-fond: #282a41;
+--couleur-bouton: #3d3f54;
+}
+body {
+    background-color: #282a41;
+}
+
+button {
+    background-color: #3d3f54;
+    border: none;
+    border-radius: 40px;
+
+}
+
+.title {
+    color: #e1b204;
+    font-size: 7em;
+}
+
+.buttons {
+    height: 30vh;
+    width: 70vh;
+    margin: 0 auto;
+}
+
+table td,
+table th {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.mask-custom {
+    background-color: #3d3f54;
+    border-radius: 2em;
+    border: 2px solid rgba(255, 255, 255, 0.05);
+    background-clip: padding-box;
+    box-shadow: 10px 10px 10px rgba(46, 54, 68, 0.03);
+}
+
+h1 {
+    color: #e1b204;
+    font-size: 3em;
+    font-weight: 600;
+    margin: 1em;
+    text-align: center;
+}
+
+.btnmodifier {
+    border-radius: 20px;
+    background: #e1b204;
+}
+
+.btnajouter {
+    border-radius: 20px;
+    border: 1px solid #e1b204;
+    color: #e1b204;
+    background-color: #3d3f54;
+}
+
+input {
+    border: none;
+    border-radius: 10px;
+    color: white;
+    background: transparent;
+}
+
+h1 {
+    color: #e1b204;
+    font-size: 3em;
+    font-weight: 600;
+    margin: 1em;
+    text-align: center;
+}
+
+#ajoutMembreModal {
+background-color: var(--couleur-fond);
+color: var(--couleur-principale);
+}
+
+#ajoutMembreModal .modal-content {
+background-color: var(--couleur-fond);
+color: var(--couleur-principale);
+}
+
+#ajoutMembreModal .modal-header {
+background-color: var(--couleur-bouton);
+color: var(--couleur-fond);
+border-bottom: 1px solid var(--couleur-principale);
+}
+
+#ajoutMembreModal .modal-footer {
+background-color: var(--couleur-bouton);
+border-top: 1px solid var(--couleur-principale);
+}
+
+#ajoutMembreModal .btn-success {
+background-color: var(--couleur-principale);
+border-color: var(--couleur-principale);
+}
+
+#ajoutMembreModal .btn-success:hover {
+background-color: darken(var(--couleur-principale), 10%);
+}
+
+
+.form-control::placeholder {
+    color: white;
+    opacity: 0.75;
+}
+
+.form-select ,.form-control  {
+    margin: 10px;
+
+    background-color:var(--couleur-bouton);
+    color: white;
+    border-color: white;
+}
+
+.form-select option {
+    background-color: var(--couleur-bouton);
+    color: white;
+}

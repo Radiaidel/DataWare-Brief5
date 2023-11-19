@@ -1,3 +1,38 @@
+<?php
+ini_set('display_errors', 'off'); //pour ne pas afficher les erreurs et warnings
+$server_name = "localhost";
+$user = "root";
+$password = "";
+$db = "dataware";
+
+$conn = mysqli_connect($server_name, $user, $password, $db);
+
+if (!$conn) {
+    die("La connexion à la base de données a échoué : " . mysqli_connect_error());
+}
+
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    if (isset($_POST["ajoutermembre"])) {
+        $nom_membre = $_POST["nom_membre"];
+        $prenom_membre = $_POST["prenom_membre"];
+        $email_membre = $_POST["email_membre"];
+        $telephone_membre = $_POST["telephone_membre"];
+        $role_membre = $_POST["role_membre"];
+        $statut_membre = $_POST["statut_membre"];
+        $equipe_membre = $_POST["equipe_membre"];
+
+        // Insérer le membre dans la base de données
+        $sqlInsertMembre = "INSERT INTO `membre`(`id_membre`, `nom_membre`, `prenom_membre`, `email`, `telephone`, `role`, `status_membre`, `id_equipe`) VALUES (4356,'$nom_membre', '$prenom_membre', '$email_membre', '$telephone_membre', '$role_membre', '$statut_membre', $equipe_membre)";
+        $resInsertMembre = mysqli_query($conn, $sqlInsertMembre);
+
+        if ($resInsertMembre) {
+            echo "Membre ajouté avec succès!";
+        } else {
+            echo "Erreur lors de l'ajout du membre : " . mysqli_error($conn);
+        }
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,66 +41,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-        <style>
-        html,
-        body,
-        .intro {
-
-            height: 100%;
-        }
-
-        body {
-            background-color: #282a41;
-        }
-
-        table td,
-        table th {
-            text-overflow: ellipsis;
-            white-space: nowrap;
-            overflow: hidden;
-        }
-
-        .mask-custom {
-            background-color: #3d3f54;
-            border-radius: 2em;
-            border: 2px solid rgba(255, 255, 255, 0.05);
-            background-clip: padding-box;
-            box-shadow: 10px 10px 10px rgba(46, 54, 68, 0.03);
-        }
-
-        h1 {
-            color: #e1b204;
-            font-size: 3em;
-            font-weight: 600;
-            margin: 1em;
-            text-align: center;
-        }
-
-        .btnmodifier {
-            border-radius: 20px;
-            background: #e1b204;
-        }
-
-        .btnajouter {
-            border-radius: 20px;
-            border: 1px solid #e1b204;
-            color: #e1b204;
-            background-color: #3d3f54;
-        }
-
-        input {
-            border: none;
-            border-radius: 10px;
-            color: white;
-            background: transparent;
-        }
-    </style>
+    <link rel="stylesheet" href="style.css">
     <title>Document</title>
 </head>
 
 <body>
     <section class="intro">
-    <h1>Liste des membres</h1>
+        <h1>Liste des membres</h1>
 
         <button type="button" class="btn btnajouter mb-3 float-end" id="ajouterMembreBtn">Ajouter un membre</button>
 
@@ -93,19 +75,6 @@
                                     </thead>
                                     <tbody>
                                         <?php
-                                        ini_set('display_errors', 'off'); //pour ne pas afficher les erreurs et warnings
-                                        $server_name = "localhost";
-                                        $user = "root";
-                                        $password = "";
-                                        $db = "dataware";
-
-                                        $conn = mysqli_connect($server_name, $user, $password, $db);
-
-                                        if (!$conn) {
-                                            die("La connexion à la base de données a échoué : " . mysqli_connect_error());
-                                        }
-
-
                                         $sql = "SELECT id_membre,nom_membre,prenom_membre,email,telephone,role, status_membre, nom_equipe FROM membre inner join equipe on membre.id_equipe=equipe.id_equipe;";
                                         $res = mysqli_query($conn, $sql);
                                         if (!$res) {
@@ -144,7 +113,7 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title">Ajouter un membre</h5>
+                        <h5 class="modal-title m-auto text-white">Ajouter un membre</h5>
                     </div>
                     <div class="modal-body">
                         <form action="membre.php" method="post">
@@ -204,34 +173,6 @@
                             </div>
                             <button type="submit" class="btn btn-success" name="ajoutermembre">Ajouter</button>
                         </form>
-
-                        <?php
-                        if ($_SERVER["REQUEST_METHOD"] == "POST") {
-                            if (isset($_POST["ajoutermembre"])) {
-                                $nom_membre = $_POST["nom_membre"];
-                                $prenom_membre = $_POST["prenom_membre"];
-                                $email_membre = $_POST["email_membre"];
-                                $telephone_membre = $_POST["telephone_membre"];
-                                $role_membre = $_POST["role_membre"];
-                                $statut_membre = $_POST["statut_membre"];
-                                $equipe_membre = $_POST["equipe_membre"];
-
-                                // Insérer le membre dans la base de données
-                                $sqlInsertMembre = "INSERT INTO `membre`(`id_membre`, `nom_membre`, `prenom_membre`, `email`, `telephone`, `role`, `status_membre`, `id_equipe`) VALUES (4356,'$nom_membre', '$prenom_membre', '$email_membre', '$telephone_membre', '$role_membre', '$statut_membre', $equipe_membre)";
-                                $resInsertMembre = mysqli_query($conn, $sqlInsertMembre);
-
-                                if ($resInsertMembre) {
-                                    echo "Membre ajouté avec succès!";
-                                } else {
-                                    echo "Erreur lors de l'ajout du membre : " . mysqli_error($conn);
-                                }
-                            }
-                        }
-                        ?>
-
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fermer</button>
                     </div>
                 </div>
             </div>

@@ -3,9 +3,9 @@ CREATE DATABASE dataware;
 use dataware;
 
 create table equipe(
-id_equipe int PRIMARY KEY,
+id_equipe int AUTO_INCREMENT PRIMARY KEY,
     nom_equipe varchar(50),
-    date_creation date,
+    date_creation date
 );
 
 INSERT into equipe VALUES (1,'Front-end' , NOW()),
@@ -19,7 +19,7 @@ INSERT into equipe VALUES (1,'Front-end' , NOW()),
 
 
 create table membre(
-	id_membre int PRIMARY KEY,
+	id_membre int AUTO_INCREMENT PRIMARY KEY,
     nom_membre varchar(50),
     prenom_membre varchar(50),
     email varchar(50) UNIQUE,
@@ -33,7 +33,7 @@ create table membre(
 
 
 INSERT INTO `membre`(`id_membre`, `nom_membre`, `prenom_membre`, `email`, `telephone`, `role`, `status_membre`, `id_equipe`) VALUES (1,'Jean', 'Dupont' , 'jean.dupont@email.com', '0634567890','developpeur front-end','Actif',1);
-INSERT INTO `membre`(`id_membre`, `nom_membre`, `prenom_membre`, `email`, `telephone`, `role`, `status_membre`, `id_equipe`) VALUES (2,'Marie', 'Martin' , 'marie.martin@email.com', '0634567890','Développeuse Back-end','Actif',2)
+INSERT INTO `membre`(`id_membre`, `nom_membre`, `prenom_membre`, `email`, `telephone`, `role`, `status_membre`, `id_equipe`) VALUES (2,'Marie', 'Martin' , 'marie.martin@email.com', '0634567890','Développeuse Back-end','Actif',2);
 
 INSERT INTO `membre`(`id_membre`, `nom_membre`, `prenom_membre`, `email`, `telephone`, `role`, `status_membre`, `id_equipe`) VALUES (3,' Ahmed', 'Khan' , 'ahmed.khan@email.com', '0634567890','Ingénieur DevOps','Actif',3);
 
